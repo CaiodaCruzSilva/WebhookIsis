@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-// Verificação do Webhook
 app.get("/webhook", (req, res) => {
   const verify_token = "meutoken123";
 
@@ -16,7 +15,6 @@ app.get("/webhook", (req, res) => {
   return res.sendStatus(403);
 });
 
-// Recebimento de mensagens
 app.post("/webhook", (req, res) => {
   console.log("Recebido do WhatsApp:", JSON.stringify(req.body, null, 2));
   res.sendStatus(200);
